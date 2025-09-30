@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loot Reward - Earn Rewards Easily</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+      --primary: #6c5ce7;
+      --secondary: #a29bfe;
+      --accent: #00cec9;
+      --dark: #1d1b31;
+      --darker: #151226;
+      --light: #f5f6fa;
+      --text: #dfe6e9;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--dark), var(--darker));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      padding: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(108, 92, 231, 0.2), transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(0, 206, 201, 0.15), transparent 50%);
+      z-index: -1;
+    }
+
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      margin-bottom: 20px;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: var(--secondary);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* Download Section */
+    .download-section {
+      margin: 60px 0;
+    }
+
+    .download-title {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .platforms {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .platform-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      width: 280px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .platform-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .platform-icon {
+      font-size: 50px;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .platform-name {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .platform-desc {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      color: #b2bec3;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+    }
+
+    /* Telegram Section */
+    .telegram-section {
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .telegram-title {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    .telegram-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .telegram-icon {
+      font-size: 70px;
+      margin-bottom: 25px;
+      color: #0088cc;
+    }
+
+    .telegram-link {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: var(--accent);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .telegram-desc {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .btn-telegram {
+      background: linear-gradient(to right, #0088cc, #00aced);
+      padding: 15px 40px;
+      font-size: 1.1rem;
+    }
+
+    /* Features Section */
+    .features-section {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .feature-desc {
+      font-size: 0.95rem;
+      color: #b2bec3;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 30px 0;
+      margin-top: 80px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      color: #636e72;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+      }
+      
+      .platforms {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .platform-card {
+        width: 100%;
+        max-width: 350px;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .telegram-link {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-bg"></div>
+      <div class="logo-container">
+        <img src="Logo.png" alt="Loot Reward Logo" class="logo-img">
+        <h1>Loot Reward</h1>
+        <p class="tagline">The ultimate app to earn amazing rewards by completing simple tasks and challenges</p>
+      </div>
+    </header>
+
+    <section class="download-section">
+      <h2 class="download-title">Download Now</h2>
+      <div class="platforms">
+        <div class="platform-card">
+          <i class="fab fa-google-play platform-icon"></i>
+          <h3 class="platform-name">Google Play</h3>
+          <p class="platform-desc">Get Loot Reward on the Google Play Store and start earning rewards today!</p>
+          <a href="#" class="btn">Download</a>
+        </div>
+        
+        <div class="platform-card">
+          <i class="fas fa-desktop platform-icon"></i>
+          <h3 class="platform-name">Direct Download</h3>
+          <p class="platform-desc">Get the APK directly for Android devices. Fast and easy installation!</p>
+          <a href="https://www.mediafire.com/file/example/lootreward.apk/file" class="btn">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="telegram-section">
+      <h2 class="telegram-title">Join Our Community</h2>
+      <div class="telegram-card">
+        <i class="fab fa-telegram telegram-icon"></i>
+        <div class="telegram-link">https://t.me/lootreward9988</div>
+        <p class="telegram-desc">Join our Telegram channel to get the latest updates, exclusive rewards, and connect with other Loot Reward users. Don't miss out on special offers!</p>
+        <a href="https://t.me/lootreward9988" target="_blank" class="btn btn-telegram">Join Now</a>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <h2 class="section-title">Why Choose Loot Reward?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fas fa-bolt feature-icon"></i>
+          <h3 class="feature-title">Quick Earnings</h3>
+          <p class="feature-desc">Start earning rewards within minutes of signing up. Complete simple tasks and watch your balance grow.</p>
+        </div>
+        
+        <div class="feature-card">
+          <i class="fas fa-gift feature-icon"></i>
+          <h3 class="feature-title">Amazing Rewards</h3>
+          <p class="feature-desc">Redeem your earnings for gift cards, cash, or exclusive items from our reward catalog.</p>
+        </div>
+        
+        <div class="feature-card">
+          <i class="fas fa-shield-alt feature-icon"></i>
+          <h3 class="feature-title">Safe & Secure</h3>
+          <p class="feature-desc">Your data and earnings are protected with bank-level security. We prioritize your privacy.</p>
+        </div>
+        
+        <div class="feature-card">
+          <i class="fas fa-users feature-icon"></i>
+          <h3 class="feature-title">Community</h3>
+          <p class="feature-desc">Join thousands of users who are already earning rewards with Loot Reward.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">Support</a>
+        <a href="#" class="footer-link">Contact Us</a>
+      </div>
+      <p class="copyright">© 2025 Loot Reward. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple animation for elements when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe platform cards
+      const platformCards = document.querySelectorAll('.platform-card');
+      platformCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+
+      // Observe feature cards
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+      });
+
+      // Observe telegram card
+      const telegramCard = document.querySelector('.telegram-card');
+      telegramCard.style.opacity = 0;
+      telegramCard.style.transform = 'translateY(20px)';
+      telegramCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(telegramCard);
+    });
+  </script>
+</body>
+</html>
